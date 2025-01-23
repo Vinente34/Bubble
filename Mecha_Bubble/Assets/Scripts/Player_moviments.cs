@@ -6,83 +6,122 @@ using UnityEngine;
 
 public class Player_moviments : MonoBehaviour
 {
-    [Header("Physics2S")]
+    [Header("Physics2D")]
     public Rigidbody2D rig;
-    public float horizontalmoviment;
+    public float xAxis;
     public float speed = 0.0f;
     public float jumpforce = 0.0f;
     [Header("Ground Detecting")]
-    public BoxCollider2D box;
-    public float castdistance = 0;
-    public LayerMask groundlayer;
+    public Transform groundCheck;
+    public bool isGround;
+    public float radius;
+    public LayerMask groundLayer;
+    public bool isJumping;
     [Header("Animation")]
     public Animator anim;
-    public bool dashButton = false;
+    public bool isDashing = false;
     public float dashSpeed = 0.0f;
+    public float dashTimeLeft = 0.0f;
+    public float dashTime = 0.0f;
     public bool facingRight = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.eulerAngles = horizontalmoviment != 0 ? new Vector3(0, horizontalmoviment > 0 ? 0 : 180, 0) : transform.eulerAngles;
-        if (Input.GetKeyDown(KeyCode.Space))
+        transform.eulerAngles = xAxis != 0 ? new Vector3(0, xAxis > 0 ? 0 : 180, 0) : transform.eulerAngles;
+        
+        xAxis = Input.GetAxis("Horizontal") * speed;
+
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            DashNow();
+            AllowDash();
+        }
+
+        if (isDashing)
+        {
+            dashTimeLeft -= Time.deltaTime;
+            if (dashTimeLeft <= 0)
+            {
+                anim.SetInteger("animOption", 0);
+                isDashing = false;
+            }
+        }
+
+        isGround = Physics2D.OverlapCircle(groundCheck.position, radius, groundLayer);
+
+        if (Input.GetButtonDown("Jump") && isGround)
+        {
+            isJumping = true;
+        }
+
+        if (xAxis < 0 && facingRight)
+        {
+            facingRight = false;
+        }
+        else if (xAxis > 0 && !facingRight)
+        {
+            facingRight = true;
         }
     }
 
     void FixedUpdate()
     {
-        horizontalmoviment = Input.GetAxis("Horizontal");
-        if (horizontalmoviment != 0)
+        if (isDashing == false)
         {
-            rig.velocity = new Vector2(horizontalmoviment * speed, transform.position.y);
+            AllowHorizontalMove();
+        }
+        AllowJump();
+    }
+
+    void AllowHorizontalMove()
+    {
+        if (xAxis != 0)
+        {
+            rig.velocity = new Vector2(xAxis, rig.velocity.y);
             anim.SetInteger("animOption", 1);
         }
         else
         {
             anim.SetInteger("animOption", 0);
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.W) && Input.GetKeyDown(KeyCode.UpArrow) && IsGround())
+    void AllowJump()
+    {
+        if (isJumping)
         {
-            rig.AddForce(new Vector2(0, jumpforce), ForceMode2D.Impulse);
+            isJumping = false;
+            rig.velocity = Vector2.zero;
+            rig.AddForce(new Vector3(0f, jumpforce, 0f), ForceMode2D.Impulse);
         }
     }
 
-    bool IsGround() 
-    {
-
-        RaycastHit2D raycast = Physics2D.BoxCast(box.bounds.center, box.bounds.size, 0f, Vector2.down, castdistance, groundlayer);
-        Vector2 perpendicular = Vector2.Perpendicular(raycast.normal);
-
-        Debug.DrawRay (raycast.point, raycast.normal, Color.yellow);
-
-        return raycast.collider!= null && rig.velocity.y < 0.1f;
-    }
-
-    public void DashNow()
+    public void AllowDash()
     {
         anim.SetInteger("animOption", 2);
 
-        if(Math.Abs(transform.localRotation.y) == 180)
+        isDashing = true;
+        dashTimeLeft = dashTime;
+
+        if (!facingRight)
         {
-            rig.velocity = new Vector2(-speed, transform.position.y);
+            rig.velocity = new Vector3(-speed * dashSpeed, rig.velocity.y, 0f);
         }
         else
         {
-            rig.velocity = new Vector2(speed, transform.position.y);
+            rig.velocity = new Vector3(speed * dashSpeed, rig.velocity.y, 0f);
         }
     }
 
-    public void stopDashAnim()
+    private void OnDrawGizmos()
     {
-        anim.SetInteger("animOption", 0);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(groundCheck.position, radius);
     }
 }

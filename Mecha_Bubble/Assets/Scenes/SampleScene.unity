@@ -158,8 +158,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 3
+  m_AngularDrag: 0.05
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -170,7 +170,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!114 &473917161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,17 +184,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rig: {fileID: 473917159}
-  horizontalmoviment: 0
+  xAxis: 0
   speed: 8
-  jumpforce: 7
-  box: {fileID: 473917165}
-  castdistance: 5
-  groundlayer:
+  jumpforce: 20
+  groundCheck: {fileID: 1283026151}
+  isGround: 0
+  radius: 0.25
+  groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  isJumping: 0
   anim: {fileID: 473917164}
-  dashButton: 0
+  isDashing: 0
   dashSpeed: 1.5
+  dashTimeLeft: 0
+  dashTime: 0.75
   facingRight: 1
 --- !u!212 &473917162
 SpriteRenderer:
@@ -260,7 +264,8 @@ Transform:
   m_LocalPosition: {x: -1.23, y: -0.55993, z: 0}
   m_LocalScale: {x: 3.678998, y: 3.678998, z: 3.678998}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1283026151}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &473917164
@@ -432,7 +437,6 @@ GameObject:
   - component: {fileID: 1271416545}
   - component: {fileID: 1271416544}
   - component: {fileID: 1271416543}
-  - component: {fileID: 1271416542}
   m_Layer: 6
   m_Name: "ch\xE3o"
   m_TagString: Untagged
@@ -440,33 +444,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!50 &1271416542
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1271416541}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &1271416543
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -578,6 +555,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1283026150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1283026151}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1283026151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283026150}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 473917163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
