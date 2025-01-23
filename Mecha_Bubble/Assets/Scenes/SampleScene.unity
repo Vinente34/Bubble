@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rig: {fileID: 473917159}
+  horizontalmoviment: 0
   speed: 8
   jumpforce: 7
   box: {fileID: 473917165}
@@ -193,7 +194,7 @@ MonoBehaviour:
     m_Bits: 64
   anim: {fileID: 473917164}
   dashButton: 0
-  dashSpeed: 0.5
+  dashSpeed: 1.5
   facingRight: 1
 --- !u!212 &473917162
 SpriteRenderer:
