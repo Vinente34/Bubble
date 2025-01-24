@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Search;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Player_moviments : MonoBehaviour
 {
@@ -11,19 +12,20 @@ public class Player_moviments : MonoBehaviour
     public float xAxis;
     public float speed = 0.0f;
     public float jumpforce = 0.0f;
+    public bool facingRight = true;
     [Header("Ground Detecting")]
     public Transform groundCheck;
     public bool isGround;
     public float radius;
     public LayerMask groundLayer;
     public bool isJumping;
-    [Header("Animation")]
-    public Animator anim;
+    [Header("Dashing")]
     public bool isDashing = false;
     public float dashSpeed = 0.0f;
     public float dashTimeLeft = 0.0f;
     public float dashTime = 0.0f;
-    public bool facingRight = true;
+    [Header("Animation")]
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -34,11 +36,8 @@ public class Player_moviments : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.eulerAngles = xAxis != 0 ? new Vector3(0, xAxis > 0 ? 0 : 180, 0) : transform.eulerAngles;
-        
-        xAxis = Input.GetAxis("Horizontal") * speed;
-
-        if (Input.GetKeyDown(KeyCode.P))
+        // Dashing Mechanics:
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             AllowDash();
         }
@@ -53,29 +52,38 @@ public class Player_moviments : MonoBehaviour
             }
         }
 
+        // Jumping Mechanics:
         isGround = Physics2D.OverlapCircle(groundCheck.position, radius, groundLayer);
 
-        if (Input.GetButtonDown("Jump") && isGround)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGround)
         {
             isJumping = true;
+            anim.SetInteger("animOption", 3);
         }
 
-        if (xAxis < 0 && facingRight)
+        if (isGround == false && isDashing == true)
         {
-            facingRight = false;
+            anim.SetInteger("animOption", 2);
         }
-        else if (xAxis > 0 && !facingRight)
+        else if (isGround == false)
         {
-            facingRight = true;
+            anim.SetInteger("animOption", 0);
         }
+
+        AllowFlip();
     }
 
     void FixedUpdate()
     {
-        if (isDashing == false)
+        // Walking Mechanics:
+        xAxis = Input.GetAxis("Horizontal") * speed;
+
+        if (isDashing == false && isJumping == false)
         {
             AllowHorizontalMove();
         }
+
+        // Jumping Mechanics:
         AllowJump();
     }
 
@@ -92,9 +100,23 @@ public class Player_moviments : MonoBehaviour
         }
     }
 
+    void AllowFlip()
+    {
+        transform.eulerAngles = xAxis != 0 ? new Vector3(0, xAxis > 0 ? 0 : 180, 0) : transform.eulerAngles;
+
+        if (xAxis < 0 && facingRight)
+        {
+            facingRight = false;
+        }
+        else if (xAxis > 0 && !facingRight)
+        {
+            facingRight = true;
+        }
+    }
+
     void AllowJump()
     {
-        if (isJumping)
+        if (isJumping == true && isDashing == false)
         {
             isJumping = false;
             rig.velocity = Vector2.zero;
