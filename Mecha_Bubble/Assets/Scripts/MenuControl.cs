@@ -17,6 +17,11 @@ public class MenuControl : MonoBehaviour
         
     }
 
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void GameStarts()
     {
         SceneManager.LoadScene(1);

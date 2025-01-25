@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class Player_moviments : MonoBehaviour
 {
+    [Header("Attributes Control")]
+    public LifeControl lifeControl;
     [Header("Physics2D")]
     public Rigidbody2D rig;
     public float xAxis;
@@ -35,55 +37,61 @@ public class Player_moviments : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Dashing Mechanics:
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (lifeControl.isDead == false)
         {
-            AllowDash();
-        }
+            // Dashing Mechanics:
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                AllowDash();
+            }
 
-        if (isDashing)
-        {
-            dashTimeLeft -= Time.deltaTime;
-            if (dashTimeLeft <= 0)
+            if (isDashing)
+            {
+                dashTimeLeft -= Time.deltaTime;
+                if (dashTimeLeft <= 0)
+                {
+                    anim.SetInteger("animOption", 0);
+                    isDashing = false;
+                }
+            }
+
+            // Jumping Mechanics:
+            isGround = Physics2D.OverlapCircle(groundCheck.position, radius, groundLayer);
+
+            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGround)
+            {
+                isJumping = true;
+                anim.SetInteger("animOption", 3);
+            }
+
+            if (isGround == false && isDashing == true)
+            {
+                anim.SetInteger("animOption", 2);
+            }
+            else if (isGround == false)
             {
                 anim.SetInteger("animOption", 0);
-                isDashing = false;
             }
-        }
 
-        // Jumping Mechanics:
-        isGround = Physics2D.OverlapCircle(groundCheck.position, radius, groundLayer);
-
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGround)
-        {
-            isJumping = true;
-            anim.SetInteger("animOption", 3);
+            AllowFlip();
         }
-
-        if (isGround == false && isDashing == true)
-        {
-            anim.SetInteger("animOption", 2);
-        }
-        else if (isGround == false)
-        {
-            anim.SetInteger("animOption", 0);
-        }
-
-        AllowFlip();
     }
 
     void FixedUpdate()
     {
-        // Walking Mechanics:
-        xAxis = Input.GetAxis("Horizontal") * speed;
-
-        if (isDashing == false && isJumping == false)
+        if (lifeControl.isDead == false)
         {
-            AllowHorizontalMove();
-        }
+            // Walking Mechanics:
+            xAxis = Input.GetAxis("Horizontal") * speed;
 
-        // Jumping Mechanics:
-        AllowJump();
+            if (isDashing == false && isJumping == false)
+            {
+                AllowHorizontalMove();
+            }
+
+            // Jumping Mechanics:
+            AllowJump();
+        }
     }
 
     void AllowHorizontalMove()
