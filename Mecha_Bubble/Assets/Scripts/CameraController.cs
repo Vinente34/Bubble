@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour
     public static CameraController Instance => m_instance;
 
     [SerializeField] private SpriteRenderer _warningSign;
+    [SerializeField] private AudioSource _sfxWarning;
 
     private void Awake()
     {
@@ -30,6 +31,8 @@ public class CameraController : MonoBehaviour
 
     IEnumerator Flickering()
     {
+        _sfxWarning.Play();
+
         float flickeringTime = 2f;
 
         _warningSign.gameObject.SetActive(true);
@@ -53,6 +56,8 @@ public class CameraController : MonoBehaviour
         _warningSign.color = Color.white;
 
         _warningSign.gameObject.SetActive(false);
+
+        _sfxWarning.Stop();
     }
 
 }

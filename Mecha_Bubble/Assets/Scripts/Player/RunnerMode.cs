@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -30,6 +29,8 @@ public class RunnerMode : MonoBehaviour
         if (!m_alive)
             return;
 
+        CheckPointerInNpc();
+
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGround)
         {
             isJumping = true;
@@ -59,16 +60,34 @@ public class RunnerMode : MonoBehaviour
         }
     }
 
-    public void Death()
+    private void CheckPointerInNpc()
+    {
+        if (!Input.GetMouseButtonDown(0))
+            return;
+
+        var position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var layer = 1 << LayerMask.NameToLayer("NPC");
+
+        RaycastHit2D hitInfo = Physics2D.CircleCast(position, 0.25f, Vector2.zero, 0f, layer);
+
+        if (hitInfo)
+        {
+            var npc = hitInfo.collider.GetComponent<NpcController>();
+            npc.ClickOnNpc();
+        }
+    }
+
+    public void Death(bool waitFlickering = true)
     {
         m_alive = false;
 
-        StartCoroutine(DeathAnimation());
+        StartCoroutine(DeathAnimation(waitFlickering));
     }
 
-    private IEnumerator DeathAnimation()
+    private IEnumerator DeathAnimation(bool waitFlickering)
     {
-        yield return Flickering();
+        if (waitFlickering)
+            yield return Flickering();
 
         yield return new WaitForSeconds(1f);
 
