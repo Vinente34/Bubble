@@ -13,6 +13,8 @@ public class BossController : MonoBehaviour
     [Header("References")]
     [SerializeField] private Animator _animator;
 
+    [SerializeField] private SpriteRenderer _bodySpriteRenderer;
+
     [SerializeField] private Transform _spitTransform;
     [SerializeField] private DamageSensor _leftHand;
     [SerializeField] private DamageSensor _rightHand;
@@ -35,6 +37,8 @@ public class BossController : MonoBehaviour
     private int m_hp = 20;
 
     private bool m_alive = true;
+
+    private Coroutine m_coroutineFlicking = null;
 
     private void Awake()
     {
@@ -338,9 +342,29 @@ public class BossController : MonoBehaviour
         SetTimer(0f);
     }
 
+    IEnumerator Flickering(float duration)
+    {
+        _bodySpriteRenderer.color = Color.clear;
+        yield return new WaitForSeconds(duration / 5);
+        _bodySpriteRenderer.color = Color.white;
+        yield return new WaitForSeconds(duration / 5);
+        _bodySpriteRenderer.color = Color.clear;
+        yield return new WaitForSeconds(duration / 5);
+        _bodySpriteRenderer.color = Color.white;
+        yield return new WaitForSeconds(duration / 5);
+        _bodySpriteRenderer.color = Color.clear;
+        yield return new WaitForSeconds(duration / 5);
+        _bodySpriteRenderer.color = Color.white;
+    }
+
     public void TakeDamage(int damage)
     {
         m_hp -= damage;
+
+        if (m_coroutineFlicking != null)
+            StopCoroutine(m_coroutineFlicking);
+
+        m_coroutineFlicking = StartCoroutine(Flickering(0.5f));
     }
 
     public void SetTimer(float timer)
