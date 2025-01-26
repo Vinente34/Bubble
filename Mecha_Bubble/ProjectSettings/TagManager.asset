@@ -18,12 +18,8 @@ TagManager:
   - Water
   - UI
   - Ground
-<<<<<<< Updated upstream
-  - NPC
-=======
   - Player
->>>>>>> Stashed changes
-  - 
+  - NPC
   - 
   - 
   - 
@@ -52,17 +48,17 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Background
-    uniqueID: 1780456445
+    uniqueID: 3001758239
     locked: 0
   - name: Ground
-    uniqueID: 972050485
+    uniqueID: 2224189293
     locked: 0
   - name: Enemy
-    uniqueID: 2196001473
+    uniqueID: 93578891
     locked: 0
   - name: Player
-    uniqueID: 1131052601
+    uniqueID: 4291736431
     locked: 0
   - name: Projectile
-    uniqueID: 2637518073
+    uniqueID: 3918203769
     locked: 0
