@@ -16,9 +16,18 @@ public class LifeControl : MonoBehaviour
     {
         if (lifePoints <= 0)
         {
-            spriteRenderer.color = damageColor; // Temporary death effect...
+            
             isDead = true;
-            gameObject.SetActive(false);
+
+            if (gameObject.CompareTag("Player"))
+            {
+                playerMoviments.anim.SetInteger("animOption", 10);
+            }
+            else
+            {
+                //spriteRenderer.color = damageColor; // Temporary death effect...
+                gameObject.SetActive(false);
+            }  
         }
     }
 

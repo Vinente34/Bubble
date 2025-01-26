@@ -33,6 +33,11 @@ public class MenuControl : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void toCredits()
+    {
+        SceneManager.LoadScene(5);
+    }
+
     public void GameStarts()
     {
         SceneManager.LoadScene(1);

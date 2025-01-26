@@ -9,6 +9,7 @@ TagManager:
   - ChangeFase
   - Projectile
   - Hittable
+  - StartingPoint
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,11 @@ TagManager:
   - Water
   - UI
   - Ground
+<<<<<<< Updated upstream
   - NPC
+=======
+  - Player
+>>>>>>> Stashed changes
   - 
   - 
   - 

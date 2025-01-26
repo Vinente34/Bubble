@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ProjectileMoves : MonoBehaviour
@@ -12,6 +13,8 @@ public class ProjectileMoves : MonoBehaviour
     private float timeOfDeath;
 
     private bool m_ableToMove = true;
+
+    public bool followFlag = false;
 
     // Esta vari�vel � essencial, pois carrega consigo o poder de ataque do player, recolhido anteriomente
     // pelo script PlayerAttacks:
@@ -77,7 +80,12 @@ public class ProjectileMoves : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Se a bala encontrar um game object com a tag Player, este game object se destruir�:
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (gameObject.CompareTag("Player") && collision.gameObject.CompareTag("Enemy"))
+        {
+            StartDestruction();
+        }
+
+        if (gameObject.CompareTag("Enemy") && collision.gameObject.CompareTag("Player"))
         {
             StartDestruction();
         }
