@@ -121,6 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2705402415822156335}
   - component: {fileID: 6277315700222163009}
+  - component: {fileID: 4551985912514837776}
   - component: {fileID: 2261382550623835131}
   - component: {fileID: 8403484024462977424}
   - component: {fileID: 6232841423876963839}
@@ -199,6 +200,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4551985912514837776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7159785393517573658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df8f2f00fabf254896b96fa49ace6ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 6277315700222163009}
+  lifePoints: 5
+  noDamageFlag: 1
+  damageColor: {r: 1, g: 1, b: 1, a: 1}
+  flickeringTime: 1
+  isDead: 0
 --- !u!114 &2261382550623835131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +291,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.45030856, y: 0.056288004}
+  m_Offset: {x: 0.10264194, y: 0.056288004}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -283,7 +302,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.823916, y: 4.4861865}
+  m_Size: {x: 3.8233125, y: 4.4861865}
   m_EdgeRadius: 0
 --- !u!95 &1078030473908765414
 Animator:

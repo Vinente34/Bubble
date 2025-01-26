@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - FlipPoint
+  - ChangeFase
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -54,4 +56,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1131052601
+    locked: 0
+  - name: Projectile
+    uniqueID: 2637518073
     locked: 0
