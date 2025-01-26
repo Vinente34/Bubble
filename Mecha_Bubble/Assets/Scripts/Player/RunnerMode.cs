@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RunnerMode : MonoBehaviour
 {
+
     [Header("Physics2D")]
     public Rigidbody2D rig;
     public float xAxis;
@@ -18,10 +20,16 @@ public class RunnerMode : MonoBehaviour
     public bool isJumping;
     [Header("Animation")]
     public Animator anim;
+    public SpriteRenderer spriteRenderer;
     public Player_attacks playerAttacks;
+
+    private bool m_alive = true;
 
     void Update()
     {
+        if (!m_alive)
+            return;
+
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGround)
         {
             isJumping = true;
@@ -31,6 +39,9 @@ public class RunnerMode : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!m_alive)
+            return;
+
         rig.velocity = new Vector2(speed, rig.velocity.y);
         if (isJumping == false)
         {
@@ -47,4 +58,40 @@ public class RunnerMode : MonoBehaviour
             rig.AddForce(new Vector3(0f, jumpforce, 0f), ForceMode2D.Impulse);
         }
     }
+
+    public void Death()
+    {
+        m_alive = false;
+
+        StartCoroutine(DeathAnimation());
+    }
+
+    private IEnumerator DeathAnimation()
+    {
+        yield return Flickering();
+
+        yield return new WaitForSeconds(1f);
+
+        SceneManager.LoadScene("Fase 2");
+    }
+
+    IEnumerator Flickering()
+    {
+        float flickeringTime = 0.5f;
+
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(flickeringTime / 5);
+        spriteRenderer.color = Color.white;
+        yield return new WaitForSeconds(flickeringTime / 5);
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(flickeringTime / 5);
+        spriteRenderer.color = Color.white;
+        yield return new WaitForSeconds(flickeringTime / 5);
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(flickeringTime / 5);
+        spriteRenderer.color = Color.white;
+        yield return new WaitForSeconds(flickeringTime / 5);
+        spriteRenderer.enabled = false;
+    }
+
 }
