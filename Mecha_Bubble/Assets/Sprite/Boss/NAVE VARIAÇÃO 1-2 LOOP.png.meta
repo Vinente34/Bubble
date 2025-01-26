@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 915621b0a8e27434e9868a2ea2d8077d
+guid: 1fec447f9a5127c46813d3bd2d5fd8e6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,112 +121,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: "\xC1cido flutuante_0"
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 152
-        height: 152
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 507b89186cb319e419cd70923f36536c
-      internalID: -913638863
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\xC1cido flutuante_1"
-      rect:
-        serializedVersion: 2
-        x: 152
-        y: 0
-        width: 152
-        height: 152
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a524268c0981c0a4cbb07bdf0c52a4b2
-      internalID: 1599392174
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\xC1cido flutuante_2"
-      rect:
-        serializedVersion: 2
-        x: 304
-        y: 0
-        width: 152
-        height: 152
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a8302e1513d7ad6458d3a7a15f8ba062
-      internalID: 756683935
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\xC1cido flutuante_3"
-      rect:
-        serializedVersion: 2
-        x: 456
-        y: 0
-        width: 152
-        height: 152
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6cafc58221d574c46b4b2cb47310a9ed
-      internalID: -1138582491
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\xC1cido flutuante_4"
-      rect:
-        serializedVersion: 2
-        x: 608
-        y: 0
-        width: 152
-        height: 152
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4139b868e1b1dd54297c67ba0d2ee7ba
-      internalID: -1901386480
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -237,12 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      "\xC1cido flutuante_0": -913638863
-      "\xC1cido flutuante_1": 1599392174
-      "\xC1cido flutuante_2": 756683935
-      "\xC1cido flutuante_3": -1138582491
-      "\xC1cido flutuante_4": -1901386480
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

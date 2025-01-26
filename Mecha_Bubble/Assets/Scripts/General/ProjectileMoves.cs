@@ -33,6 +33,11 @@ public class ProjectileMoves : MonoBehaviour
         ShotDirection();
     }
 
+    public void SetupScale(float scaleProportion = 1f)
+    {
+        transform.localScale *= scaleProportion;
+    }
+
     // Movimenta��o que faz o game object se movimentar para direita:
     private void ShotDirection()
     {
@@ -46,6 +51,13 @@ public class ProjectileMoves : MonoBehaviour
     private void ShotLife()
     {
         StartCoroutine(BubbleCoroutine());
+    }
+
+    public void StartDestruction()
+    {
+        m_ableToMove = false;
+
+        anim.SetBool("imDead", true);
     }
 
     IEnumerator BubbleCoroutine()
@@ -67,9 +79,7 @@ public class ProjectileMoves : MonoBehaviour
         // Se a bala encontrar um game object com a tag Player, este game object se destruir�:
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            m_ableToMove = false;
-            
-            anim.SetBool("imDead", true);
+            StartDestruction();
         }
     }
 }

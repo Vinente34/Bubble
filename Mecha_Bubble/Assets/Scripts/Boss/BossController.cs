@@ -211,7 +211,7 @@ public class BossController : MonoBehaviour
             Instantiate(_dropVomit, new Vector3(0f, height, 0f), Quaternion.identity)
         };
 
-        var endOffset = new Vector2(0f, -0.1f);
+        var endOffset = new Vector2(0f, -0.4f);
         var endScale = new Vector2(1.55f, 0.3f);
 
         var startX = -5f;

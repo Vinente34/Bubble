@@ -8,6 +8,7 @@ TagManager:
   - FlipPoint
   - ChangeFase
   - Projectile
+  - Hittable
   layers:
   - Default
   - TransparentFX

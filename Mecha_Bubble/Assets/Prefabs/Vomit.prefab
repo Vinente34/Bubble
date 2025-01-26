@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1874612282023896722}
   - component: {fileID: -8748682253997070874}
   - component: {fileID: 7214262764398131702}
+  - component: {fileID: 2275888221956115457}
   - component: {fileID: 2511661797032455395}
   - component: {fileID: 467669850044218351}
   - component: {fileID: 8783892024035193601}
@@ -51,9 +52,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defaultColor: {r: 1, g: 1, b: 1, a: 1}
   _hittingColor: {r: 1, g: 1, b: 1, a: 1}
-  _collider: {fileID: 7214262764398131702}
+  _colliders:
+  - {fileID: 7214262764398131702}
+  - {fileID: 2275888221956115457}
   _sprite: {fileID: 957471556838672960}
 --- !u!70 &7214262764398131702
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384686312652209955}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.075}
+  m_Size: {x: 0.8, y: 1.35}
+  m_Direction: 0
+--- !u!70 &2275888221956115457
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -82,7 +120,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.075}

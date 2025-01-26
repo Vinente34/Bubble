@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: -2098965823
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1477773718, guid: 76dfd84990e84144aa33fbc1294500ec, type: 3}
+  m_Sprite: {fileID: -913638863, guid: 915621b0a8e27434e9868a2ea2d8077d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,12 +95,13 @@ GameObject:
   - component: {fileID: 3517333994595076877}
   - component: {fileID: 414806684223519798}
   - component: {fileID: 8637021694627943981}
+  - component: {fileID: -9006215983034509135}
   - component: {fileID: 7056631589100079373}
   - component: {fileID: 8843519404875848207}
   - component: {fileID: 2562577978585082438}
   m_Layer: 0
   m_Name: DropVomit
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,9 +136,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defaultColor: {r: 1, g: 1, b: 1, a: 1}
   _hittingColor: {r: 1, g: 1, b: 1, a: 1}
-  _collider: {fileID: 8637021694627943981}
+  _colliders:
+  - {fileID: 8637021694627943981}
+  - {fileID: -9006215983034509135}
   _sprite: {fileID: 1291034994697964268}
 --- !u!70 &8637021694627943981
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9219532564437208803}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00681939, y: 0.18396063}
+  m_Size: {x: 1.1198224, y: 0.95799804}
+  m_Direction: 1
+--- !u!70 &-9006215983034509135
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,12 +204,12 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.075}
-  m_Size: {x: 0.8, y: 1.35}
-  m_Direction: 0
+  m_Offset: {x: 0.00681939, y: 0.18396063}
+  m_Size: {x: 1.1198224, y: 0.95799804}
+  m_Direction: 1
 --- !u!114 &7056631589100079373
 MonoBehaviour:
   m_ObjectHideFlags: 0

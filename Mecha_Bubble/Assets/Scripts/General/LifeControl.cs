@@ -33,6 +33,9 @@ public class LifeControl : MonoBehaviour
             lifePoints--;
             StartCoroutine(Flickering());
         }
+
+        if (gameObject.CompareTag("Player"))
+            MenuControl.Instance.UpdateLifes(lifePoints);
     }
 
     IEnumerator Flickering()

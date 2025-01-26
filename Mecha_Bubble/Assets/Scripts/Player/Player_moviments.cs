@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class Player_moviments : MonoBehaviour
@@ -175,8 +171,6 @@ public class Player_moviments : MonoBehaviour
     {
         knockbackCounter = knockbackTotalTime;
         knockbackFromRight = collisionPoint.x <= transform.position.x;
-
-        MenuControl.Instance.UpdateLifes(lifeControl.lifePoints);
     }
 
     private void OnDrawGizmos()
