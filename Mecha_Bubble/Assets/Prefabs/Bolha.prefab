@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -58.03, y: -0.68, z: 0}
-  m_LocalScale: {x: 0.18, y: 0.18, z: 0.18}
+  m_LocalScale: {x: 0.17, y: 0.17, z: 0.17}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,10 +76,10 @@ SpriteRenderer:
   m_SortingLayerID: 1131052601
   m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: 696598750, guid: d962d2b83005b844bbedd762f741747d, type: 3}
+  m_Sprite: {fileID: 635852702, guid: 902552ee20b51a048835c5cf33f9b278, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 6.4199996, y: 6.426269}
   m_AdaptiveModeThreshold: 0.5
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1782641879799635473}
-  speed: 3
+  speed: 6
   timeOfDeath: 2.5
   attackPower: 1
 --- !u!58 &1874477075976012342

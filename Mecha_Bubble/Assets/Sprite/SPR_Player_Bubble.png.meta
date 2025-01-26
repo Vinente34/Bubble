@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d962d2b83005b844bbedd762f741747d
+guid: 902552ee20b51a048835c5cf33f9b278
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -94,19 +94,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -136,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spritesheet (8) (1)_0
+      name: SPR_Player_Bubble_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 985ff5297e738b0458eb468cd7c9b110
-      internalID: 696598750
+      spriteID: f74c735dbaa2ae540b29a9766b141106
+      internalID: 635852702
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet (8) (1)_1
+      name: SPR_Player_Bubble_1
       rect:
         serializedVersion: 2
         x: 642
@@ -171,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a15261f443f4354c8113660d689bc12
-      internalID: 1195096040
+      spriteID: e62afb730460f2141876ea3e38c99a48
+      internalID: 1945915856
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet (8) (1)_2
+      name: SPR_Player_Bubble_2
       rect:
         serializedVersion: 2
         x: 1284
@@ -192,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b2a9dda3a7f9184abf9561633c5bf5d
-      internalID: -2102151303
+      spriteID: 72b4a7d746ace244da09ca35b496e099
+      internalID: 721700589
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet (8) (1)_3
+      name: SPR_Player_Bubble_3
       rect:
         serializedVersion: 2
         x: 1926
@@ -213,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42fa9a96934a4564a9a959e804cc8580
-      internalID: -1970033609
+      spriteID: ef664099f1d160c488a4b1fa8912769c
+      internalID: 320832465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet (8) (1)_4
+      name: SPR_Player_Bubble_4
       rect:
         serializedVersion: 2
         x: 2568
@@ -234,8 +221,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12726cd5d7535aa4790f749e06ddce5e
-      internalID: -722772677
+      spriteID: e39e6883240a1cd48bb3a3e0edd7f6af
+      internalID: -378877854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Player_Bubble_5
+      rect:
+        serializedVersion: 2
+        x: 3210
+        y: 0
+        width: 642
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37c337d63edc4b44cb102e0178fade71
+      internalID: 312975679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Player_Bubble_6
+      rect:
+        serializedVersion: 2
+        x: 3852
+        y: 0
+        width: 642
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 184da8acd91b9b740aefcc64dd88c176
+      internalID: 997116653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Player_Bubble_7
+      rect:
+        serializedVersion: 2
+        x: 4494
+        y: 0
+        width: 642
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09f382ee407917a4eaeb9a237c3011fe
+      internalID: 477020197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Player_Bubble_8
+      rect:
+        serializedVersion: 2
+        x: 5136
+        y: 0
+        width: 642
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c0b8d152252f2e46b315177989a9513
+      internalID: 1916956990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Player_Bubble_9
+      rect:
+        serializedVersion: 2
+        x: 5778
+        y: 0
+        width: 642
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04a700dbd02266c4aaa1b61ad95b40ab
+      internalID: 1293751290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Player_Bubble_10
+      rect:
+        serializedVersion: 2
+        x: 6420
+        y: 0
+        width: 642
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b4956a41de47964f9b0f3b79c69c9f4
+      internalID: -963681079
       vertices: []
       indices: 
       edges: []
@@ -251,11 +364,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spritesheet (8) (1)_0: 696598750
-      spritesheet (8) (1)_1: 1195096040
-      spritesheet (8) (1)_2: -2102151303
-      spritesheet (8) (1)_3: -1970033609
-      spritesheet (8) (1)_4: -722772677
+      SPR_Player_Bubble_0: 635852702
+      SPR_Player_Bubble_1: 1945915856
+      SPR_Player_Bubble_10: -963681079
+      SPR_Player_Bubble_2: 721700589
+      SPR_Player_Bubble_3: 320832465
+      SPR_Player_Bubble_4: -378877854
+      SPR_Player_Bubble_5: 312975679
+      SPR_Player_Bubble_6: 997116653
+      SPR_Player_Bubble_7: 477020197
+      SPR_Player_Bubble_8: 1916956990
+      SPR_Player_Bubble_9: 1293751290
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

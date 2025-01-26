@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class ProjectileMoves : MonoBehaviour
@@ -11,36 +11,49 @@ public class ProjectileMoves : MonoBehaviour
     [SerializeField]
     private float timeOfDeath;
 
-    // Esta variável é essencial, pois carrega consigo o poder de ataque do player, recolhido anteriomente
+    private bool m_ableToMove = true;
+
+    // Esta variï¿½vel ï¿½ essencial, pois carrega consigo o poder de ataque do player, recolhido anteriomente
     // pelo script PlayerAttacks:
     public int attackPower;
+
+    private void Awake()
+    {
+        m_ableToMove = true;
+
+        ShotLife();
+    }
 
     // Update is called once per frame
     void Update()
     {
+        if (!m_ableToMove)
+            return;
+
         ShotDirection();
-        ShotLife();
     }
 
-    // Movimentação que faz o game object se movimentar para direita:
+    // Movimentaï¿½ï¿½o que faz o game object se movimentar para direita:
     private void ShotDirection()
     {
         Vector2 position = this.transform.position;
-        Vector2 direction = this.transform.right; // Obter a direção do objeto
-        position += direction * speed * Time.deltaTime; // Adicionar à posição na direção do objeto
+        Vector2 direction = this.transform.right; // Obter a direï¿½ï¿½o do objeto
+        position += direction * speed * Time.deltaTime; // Adicionar ï¿½ posiï¿½ï¿½o na direï¿½ï¿½o do objeto
         this.transform.position = position;
     }
 
-    // Destrói o game object no qual este script está atrelado depois de um certo tempo:
+    // Destrï¿½i o game object no qual este script estï¿½ atrelado depois de um certo tempo:
     private void ShotLife()
     {
-
         StartCoroutine(BubbleCoroutine());
     }
 
     IEnumerator BubbleCoroutine()
     {
         yield return new WaitForSeconds(timeOfDeath);
+
+        m_ableToMove = false;
+
         anim.SetBool("imDead", true);
     }
 
@@ -51,9 +64,11 @@ public class ProjectileMoves : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Se a bala encontrar um game object com a tag Player, este game object se destruirá:
+        // Se a bala encontrar um game object com a tag Player, este game object se destruirï¿½:
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            m_ableToMove = false;
+            
             anim.SetBool("imDead", true);
         }
     }
