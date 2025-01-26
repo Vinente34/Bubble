@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3458564421247193173}
   - component: {fileID: 553881073745617050}
   - component: {fileID: 4400501693155834870}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: NPC_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2383888021457545029}
   - component: {fileID: 2362915895649306752}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2098965823
+  m_SortingLayerID: 93578891
   m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 626700424, guid: 2a4e39ed9b5f13c449d406c56b0cb897, type: 3}
@@ -210,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7232183958377948872}
   - component: {fileID: 6206038340449520645}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2098965823
+  m_SortingLayerID: 93578891
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5d3c5336e70342f4481e8e8d9e163917, type: 3}
@@ -294,7 +294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4147202713724044380}
   - component: {fileID: 2351992328637239557}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Mud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +354,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2098965823
+  m_SortingLayerID: 93578891
   m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 1040536112, guid: dfb3f557e98bd0044b8d150f319cf429, type: 3}
