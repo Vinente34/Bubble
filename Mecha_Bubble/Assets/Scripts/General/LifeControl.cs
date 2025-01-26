@@ -12,12 +12,6 @@ public class LifeControl : MonoBehaviour
     public float flickeringTime = 0;
     public bool isDead = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -25,13 +19,17 @@ public class LifeControl : MonoBehaviour
         {
             spriteRenderer.color = damageColor; // Temporary death effect...
             isDead = true;
+            gameObject.SetActive(false);
         }
     }
 
     void TakeDamage()
     {
+        Debug.Log(noDamageFlag);
+        Debug.Log(lifePoints);
         if (noDamageFlag == false && lifePoints > 0)
         {
+            Debug.Log("A2");
             lifePoints--;
             StartCoroutine(Flickering());
         }
@@ -58,6 +56,20 @@ public class LifeControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (this.gameObject.CompareTag("Enemy") && collision.gameObject.CompareTag("Projectile"))
+        {
+            Debug.Log("A1");
+            TakeDamage();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (this.gameObject.CompareTag("Player") && collision.gameObject.CompareTag("Enemy"))
+        {
+            TakeDamage();
+        }
+
         if (this.gameObject.CompareTag("Enemy") && collision.gameObject.CompareTag("Player"))
         {
             playerMoviments = collision.GetComponent<Player_moviments>();
@@ -70,14 +82,6 @@ public class LifeControl : MonoBehaviour
             {
                 playerMoviments.knockbackFromRight = false;
             }
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (this.gameObject.CompareTag("Player") && collision.gameObject.CompareTag("Enemy"))
-        {
-            TakeDamage();
         }
     }
 }

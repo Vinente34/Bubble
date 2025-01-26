@@ -501,7 +501,8 @@ GameObject:
   - component: {fileID: 522099073}
   - component: {fileID: 522099072}
   - component: {fileID: 522099071}
-  - component: {fileID: 522099070}
+  - component: {fileID: 522099074}
+  - component: {fileID: 522099075}
   - component: {fileID: 522099069}
   - component: {fileID: 522099068}
   - component: {fileID: 522099067}
@@ -631,37 +632,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &522099070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 522099065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a25a36a5441201d4cb31333b4c9f7eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RunnerMode: 1
-  lifeControl: {fileID: 522099071}
-  rig: {fileID: 522099069}
-  xAxis: 0
-  speed: 8
-  jumpforce: 20.5
-  facingRight: 1
-  groundCheck: {fileID: 1686311863}
-  isGround: 0
-  radius: 0.25
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  isJumping: 0
-  isDashing: 0
-  dashSpeed: 2
-  dashTimeLeft: 0
-  dashTime: 0.75
-  anim: {fileID: 522099066}
 --- !u!114 &522099071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,8 +644,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df8f2f00fabf254896b96fa49ace6ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMoviments: {fileID: 0}
   spriteRenderer: {fileID: 522099072}
-  lifePoints: 10
+  lifePoints: 1
   noDamageFlag: 0
   damageColor: {r: 1, g: 0, b: 0, a: 0}
   flickeringTime: 0.75
@@ -748,6 +719,51 @@ Transform:
   - {fileID: 1686311863}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &522099074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522099065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38257f105d5b4be4dba9ffda733b8c85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rig: {fileID: 522099069}
+  xAxis: 0
+  speed: 8
+  jumpforce: 20.5
+  facingRight: 1
+  groundCheck: {fileID: 1686311863}
+  isGround: 0
+  radius: 0.25
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  isJumping: 0
+  anim: {fileID: 522099066}
+  playerAttacks: {fileID: 0}
+--- !u!114 &522099075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522099065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4b3d0c922e10b47b486201d6c0524b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
+  prefab: {fileID: 0}
+  anim: {fileID: 0}
+  attackPower: 0
+  attackedNow: 0
+  shootedNow: 0
+  timeBeforeAttack: 0
 --- !u!1 &537814885
 GameObject:
   m_ObjectHideFlags: 0

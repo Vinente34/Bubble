@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class Player_moviments : MonoBehaviour
 {
-    [Header("Game Mode")]
-    public bool RunnerMode = false;
     [Header("Attributes Control")]
     public LifeControl lifeControl;
     [Header("Physics2D")]
@@ -48,22 +46,8 @@ public class Player_moviments : MonoBehaviour
     {
         if (lifeControl.isDead == false)
         {
-
-            if (RunnerMode == true)
-            {
-                // Jumping Mechanics:
-                isGround = Physics2D.OverlapCircle(groundCheck.position, radius, groundLayer);
-
-                if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGround)
-                {
-                    isJumping = true;
-                    anim.SetInteger("animOption", 3);
-                }
-            }
-            else
-            {
                 // Dashing Mechanics:
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space) && lifeControl.noDamageFlag == false)
                 {
                     AllowDash();
                 }
@@ -97,7 +81,6 @@ public class Player_moviments : MonoBehaviour
                 }
 
                 AllowFlip();
-            }
         }
     }
 
@@ -105,42 +88,31 @@ public class Player_moviments : MonoBehaviour
     {
         if (lifeControl.isDead == false)
         {
-            if (RunnerMode == false)
+            if (knockbackCounter <= 0)
             {
-                if (knockbackCounter <= 0)
+                // Walking Mechanics:
+                xAxis = Input.GetAxis("Horizontal") * speed;
+
+                if (isDashing == false && isJumping == false && lifeControl.noDamageFlag == false)
                 {
-                    // Walking Mechanics:
-                    xAxis = Input.GetAxis("Horizontal") * speed;
-
-                    if (isDashing == false && isJumping == false)
-                    {
-                        AllowHorizontalMove();
-                    }
-
-                    // Jumping Mechanics:
-                    AllowJump();
+                    AllowHorizontalMove();
                 }
-                else
-                {
-                    if (knockbackFromRight == true)
-                    {
-                        rig.velocity = new Vector2(-knockbackForce*1.5f, knockbackForce);
-                    }
-                    else
-                    {
-                        rig.velocity = new Vector2(knockbackForce*1.5f, knockbackForce);
-                    }
 
-                    knockbackCounter =- Time.deltaTime;
-                }
+                // Jumping Mechanics:
+                AllowJump();
             }
             else
             {
-                rig.velocity = new Vector2(speed, rig.velocity.y);
-                if (isJumping == false)
-                {
-                    anim.SetInteger("animOption", 1);
-                }
+               if (knockbackFromRight == true)
+               {
+                    rig.velocity = new Vector2(-knockbackForce*1.5f, knockbackForce);
+               }
+               else
+               {
+                    rig.velocity = new Vector2(knockbackForce*1.5f, knockbackForce);
+               }
+
+               knockbackCounter =- Time.deltaTime;
             }
         }
     }
