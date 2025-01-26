@@ -15,8 +15,8 @@ public class MudTrigger : MonoBehaviour
         if (!other.CompareTag("Player"))
             return;
 
-        var index = Random.Range(0, 3) <= 1 ? 1 : 0;
-        var sides = new Vector2[2] { new Vector2(-1.5f, 0.3f), new Vector2(1f, 3.5f) };
+        var index = Random.Range(0, 3) <= 1 ? 0 : 1;
+        var sides = new Vector2[2] { new(-1.5f, 0f), new(1f, 3.5f) };
         var yRandom = Random.Range(sides[index].x, sides[index].y);
 
         var position = (Vector2) transform.position + Vector2.right * 30f;
