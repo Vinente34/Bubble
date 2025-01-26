@@ -46,41 +46,41 @@ public class Player_moviments : MonoBehaviour
     {
         if (lifeControl.isDead == false)
         {
-                // Dashing Mechanics:
-                if (Input.GetKeyDown(KeyCode.Space) && lifeControl.noDamageFlag == false)
-                {
-                    AllowDash();
-                }
+            // Dashing Mechanics:
+            if (Input.GetKeyDown(KeyCode.Space) && lifeControl.noDamageFlag == false)
+            {
+                AllowDash();
+            }
 
-                if (isDashing)
-                {
-                    dashTimeLeft -= Time.deltaTime;
-                    if (dashTimeLeft <= 0)
-                    {
-                        anim.SetInteger("animOption", 0);
-                        isDashing = false;
-                    }
-                }
-
-                // Jumping Mechanics:
-                isGround = Physics2D.OverlapCircle(groundCheck.position, radius, groundLayer);
-
-                if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGround)
-                {
-                    isJumping = true;
-                    anim.SetInteger("animOption", 3);
-                }
-
-                if (isGround == false && isDashing == true)
-                {
-                    anim.SetInteger("animOption", 2);
-                }
-                else if (isGround == false)
+            if (isDashing)
+            {
+                dashTimeLeft -= Time.deltaTime;
+                if (dashTimeLeft <= 0)
                 {
                     anim.SetInteger("animOption", 0);
+                    isDashing = false;
                 }
+            }
 
-                AllowFlip();
+            // Jumping Mechanics:
+            isGround = Physics2D.OverlapCircle(groundCheck.position, radius, groundLayer);
+
+            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGround)
+            {
+                isJumping = true;
+                anim.SetInteger("animOption", 3);
+            }
+
+            if (isGround == false && isDashing == true)
+            {
+                anim.SetInteger("animOption", 2);
+            }
+            else if (isGround == false)
+            {
+                anim.SetInteger("animOption", 0);
+            }
+
+            AllowFlip();
         }
     }
 
@@ -103,16 +103,16 @@ public class Player_moviments : MonoBehaviour
             }
             else
             {
-               if (knockbackFromRight == true)
-               {
-                    rig.velocity = new Vector2(-knockbackForce*1.5f, knockbackForce);
-               }
-               else
-               {
-                    rig.velocity = new Vector2(knockbackForce*1.5f, knockbackForce);
-               }
+                if (knockbackFromRight == true)
+                {
+                    rig.velocity = new Vector2(-knockbackForce * 1.5f, knockbackForce);
+                }
+                else
+                {
+                    rig.velocity = new Vector2(knockbackForce * 1.5f, knockbackForce);
+                }
 
-               knockbackCounter =- Time.deltaTime;
+                knockbackCounter = -Time.deltaTime;
             }
         }
     }
@@ -169,6 +169,14 @@ public class Player_moviments : MonoBehaviour
         {
             rig.velocity = new Vector3(speed * dashSpeed, rig.velocity.y, 0f);
         }
+    }
+
+    public void Knockback(Vector3 collisionPoint)
+    {
+        knockbackCounter = knockbackTotalTime;
+        knockbackFromRight = collisionPoint.x <= transform.position.x;
+
+        MenuControl.Instance.UpdateLifes(lifeControl.lifePoints);
     }
 
     private void OnDrawGizmos()

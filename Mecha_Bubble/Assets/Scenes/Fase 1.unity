@@ -379,7 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMoviments: {fileID: 0}
   spriteRenderer: {fileID: 135064351}
-  lifePoints: 100
+  lifePoints: 5
   noDamageFlag: 0
   damageColor: {r: 1, g: 0, b: 0, a: 0}
   flickeringTime: 1
@@ -1248,7 +1248,7 @@ GameObject:
   - component: {fileID: 551015441}
   - component: {fileID: 551015440}
   m_Layer: 5
-  m_Name: Bubble (6)
+  m_Name: IMG_Life_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1849,7 +1849,7 @@ GameObject:
   - component: {fileID: 789400652}
   - component: {fileID: 789400651}
   m_Layer: 5
-  m_Name: Bubble (1)
+  m_Name: IMG_Life_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2766,7 +2766,7 @@ GameObject:
   - component: {fileID: 1061071293}
   - component: {fileID: 1061071292}
   m_Layer: 5
-  m_Name: Bubble
+  m_Name: IMG_Life_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3714,7 +3714,7 @@ GameObject:
   - component: {fileID: 1326882484}
   - component: {fileID: 1326882483}
   m_Layer: 5
-  m_Name: Bubble (5)
+  m_Name: IMG_Life_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5938,7 +5938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1905236062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6014,8 +6014,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1969100990}
   - {fileID: 409620562}
+  - {fileID: 1969100990}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6067,6 +6067,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3454de708666c014a95233fbb0552004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lifes:
+  - {fileID: 1061071292}
+  - {fileID: 789400651}
+  - {fileID: 1326882483}
+  - {fileID: 551015440}
+  - {fileID: 2130566083}
 --- !u!1 &1947330962
 GameObject:
   m_ObjectHideFlags: 3
@@ -6341,7 +6347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1969100990
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7230,7 +7236,7 @@ GameObject:
   - component: {fileID: 2130566084}
   - component: {fileID: 2130566083}
   m_Layer: 5
-  m_Name: Bubble (7)
+  m_Name: IMG_Life_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

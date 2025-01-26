@@ -73,15 +73,7 @@ public class LifeControl : MonoBehaviour
         if (this.gameObject.CompareTag("Enemy") && collision.gameObject.CompareTag("Player"))
         {
             playerMoviments = collision.GetComponent<Player_moviments>();
-            playerMoviments.knockbackCounter = playerMoviments.knockbackTotalTime;
-            if (collision.transform.position.x <= transform.position.x)
-            {
-                playerMoviments.knockbackFromRight = true;
-            }
-            else
-            {
-                playerMoviments.knockbackFromRight = false;
-            }
+            playerMoviments.Knockback(collision.transform.position);
         }
     }
 }

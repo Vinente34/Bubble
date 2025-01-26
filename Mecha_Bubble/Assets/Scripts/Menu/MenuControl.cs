@@ -1,20 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuControl : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private static MenuControl m_instance;
+    public static MenuControl Instance => m_instance;
+
+    [SerializeField] private Image[] _lifes;
+
+    private void Awake()
     {
-        
+        if (m_instance == null)
+            m_instance = this;
+        else
+            Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateLifes(int lifes)
     {
-        
+        for (int i = 0; i < _lifes.Length; i++)
+        {
+            Image life = _lifes[i];
+            life.gameObject.SetActive(i < lifes);
+        }
     }
 
     public void BackToMenu()
@@ -29,7 +40,10 @@ public class MenuControl : MonoBehaviour
 
     public void ExitGame()
     {
-        Debug.Log("Saiu do Jogo");
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#endif
+
         Application.Quit();
     }
 }
