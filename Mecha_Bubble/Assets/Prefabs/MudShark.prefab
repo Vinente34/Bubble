@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 763398585381383960}
   m_Layer: 0
   m_Name: MudShark
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -421,9 +421,15 @@ MonoBehaviour:
   spriteRenderer: {fileID: 629502744403716945}
   lifePoints: 3
   noDamageFlag: 0
-  damageColor: {r: 1, g: 1, b: 1, a: 1}
+  damageColor: {r: 1, g: 1, b: 1, a: 0}
   flickeringTime: 1
   isDead: 0
+  blackWallGameOver: {fileID: 0}
+  gameOverText: {fileID: 0}
+  button1: {fileID: 0}
+  button2: {fileID: 0}
+  timeForBlackWall: 0
+  timeForGameOver: 0
 --- !u!61 &7579805935482860472
 BoxCollider2D:
   m_ObjectHideFlags: 0

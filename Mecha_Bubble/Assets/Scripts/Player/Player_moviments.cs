@@ -183,7 +183,7 @@ public class Player_moviments : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("ChangeFase"))
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
     }
 }

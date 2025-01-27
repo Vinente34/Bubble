@@ -30,7 +30,7 @@ public class MenuControl : MonoBehaviour
 
     public void BackToMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void toCredits()
@@ -40,7 +40,7 @@ public class MenuControl : MonoBehaviour
 
     public void GameStarts()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void ExitGame()
