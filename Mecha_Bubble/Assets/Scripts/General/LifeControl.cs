@@ -59,7 +59,6 @@ public class LifeControl : MonoBehaviour
         Debug.Log(lifePoints);
         if (noDamageFlag == false && lifePoints > 0)
         {
-            Debug.Log("A2");
             lifePoints--;
             StartCoroutine(Flickering());
         }

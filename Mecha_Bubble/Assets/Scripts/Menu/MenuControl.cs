@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,8 @@ public class MenuControl : MonoBehaviour
     public static MenuControl Instance => m_instance;
 
     [SerializeField] private Image[] _lifes;
+
+    public Animator anim;
 
     private void Awake()
     {
@@ -28,8 +31,27 @@ public class MenuControl : MonoBehaviour
         }
     }
 
+    public void MakePlayerJump()
+    {
+        StartCoroutine(MakePlayerJumpProccess());
+    }
+
+    IEnumerator MakePlayerJumpProccess()
+    {
+        anim.SetBool("GameStarted", true);
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(2);
+    }
+
+    public void BackToBoss()
+    {
+        Debug.Log("Back To Boss");
+        SceneManager.LoadScene(4);
+    }
+
     public void BackToMenu()
     {
+        Debug.Log("Back To Menu");
         SceneManager.LoadScene(1);
     }
 
