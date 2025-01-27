@@ -15,7 +15,8 @@ public class HitSensor : MonoBehaviour
         if (!other.CompareTag("Projectile"))
             return;
 
-        other.GetComponent<ProjectileMoves>().StartDestruction();
+        if (other.TryGetComponent(out ProjectileMoves projectile))
+            projectile.StartDestruction();
 
         TakeDamage(1);
     }

@@ -394,7 +394,7 @@ public class BossController : MonoBehaviour
 
     public void Death()
     {
-        Debug.Log("Boss Destroyed");
+        CreditsController.Instance.ShowCredits();
         
         Destroy(gameObject);
     }
