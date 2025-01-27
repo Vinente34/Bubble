@@ -11,17 +11,29 @@ public class LifeControl : MonoBehaviour
     public float flickeringTime = 0;
     public bool isDead = false;
 
+    public GameObject blackWallGameOver;
+    public GameObject gameOverText;
+    public GameObject button1;
+    public GameObject button2;
+    public float timeForBlackWall;
+    public float timeForGameOver;
+
     // Update is called once per frame
     void Update()
     {
         if (lifePoints <= 0)
         {
-            
             isDead = true;
 
             if (gameObject.CompareTag("Player"))
             {
                 playerMoviments.anim.SetInteger("animOption", 10);
+
+                if (blackWallGameOver.activeSelf == false)
+                {
+                    StartCoroutine(ShowGameOver());
+                }
+                
             }
             else
             {
@@ -29,6 +41,16 @@ public class LifeControl : MonoBehaviour
                 gameObject.SetActive(false);
             }  
         }
+    }
+
+    IEnumerator ShowGameOver()
+    {
+        yield return new WaitForSeconds(timeForBlackWall);
+        blackWallGameOver.SetActive(true);
+        yield return new WaitForSeconds(timeForGameOver);
+        gameOverText.SetActive(true);
+        button1.SetActive(true);
+        button2.SetActive(true);
     }
 
     void TakeDamage()

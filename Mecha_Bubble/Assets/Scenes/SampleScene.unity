@@ -183,10 +183,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a25a36a5441201d4cb31333b4c9f7eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeControl: {fileID: 0}
   rig: {fileID: 473917159}
   xAxis: 0
   speed: 8
   jumpforce: 20
+  facingRight: 1
+  knockbackForce: 0
+  knockbackCounter: 0
+  knockbackTotalTime: 0
+  knockbackFromRight: 0
   groundCheck: {fileID: 1283026151}
   isGround: 0
   radius: 0.25
@@ -194,12 +200,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   isJumping: 0
-  anim: {fileID: 473917164}
   isDashing: 0
   dashSpeed: 2
   dashTimeLeft: 0
   dashTime: 0.75
-  facingRight: 1
+  anim: {fileID: 473917164}
+  playerAttacks: {fileID: 0}
 --- !u!212 &473917162
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -325,7 +331,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.31, y: 0.53}
+    oldSize: {x: 1.4832536, y: 2.535885}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

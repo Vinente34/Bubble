@@ -110,9 +110,15 @@ MonoBehaviour:
   spriteRenderer: {fileID: 2998984957505113743}
   lifePoints: 5
   noDamageFlag: 0
-  damageColor: {r: 1, g: 0, b: 0, a: 0}
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
   flickeringTime: 1
   isDead: 0
+  blackWallGameOver: {fileID: 0}
+  gameOverText: {fileID: 0}
+  button1: {fileID: 0}
+  button2: {fileID: 0}
+  timeForBlackWall: 0
+  timeForGameOver: 0
 --- !u!114 &2745352855797276890
 MonoBehaviour:
   m_ObjectHideFlags: 0
